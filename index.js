@@ -19,21 +19,25 @@ const maxTries = 5;
 let remainingTries = maxTries;
 let guessedNumbers = [];
 button.addEventListener("click", guessCheck)
+// button.addEventListener("click", endGame)
 
 function guessCheck(){
     let userGuess = input.value;
 // user guess will get compared to randomNumber
  if(userGuess === randomNumber) {
     alert("congrats! you guessed the answer!");
+    endGame();
  }
  else if (userGuess > randomNumber) {
     guessCount++;
     alert("Wrong guess! Try a smaller number");
+    endGame();
  }
  else
  {
     guessCount++;
     alert("Wrong guess! Try a greater number!");
+    endGame();
  }
 }
 console.log(randomNumber);
@@ -43,17 +47,17 @@ function endGame(){
 let attempts = input.value;
 guessedNumbers.push(attempts);
 guessCount++;
-remainingTries--;
-if (guessCount > maxTries){
-    alert("Out of guesses!");
-    resetGame();
-}
-else if (isNaN(attempts)){
-    alert(attempts + "is not a number!");
-}
-}
-function resetGame(){
-if (guessCount > maxTries){
+// remainingTries--;
+// if (guessCount > maxTries){
+//     alert("Out of guesses!");
+//     resetGame();
+// }
+// else if (isNaN(attempts)){
+//     alert(attempts + "is not a number!");
+// }
+// }
+// function resetGame(){
+if (guessCount > 6){
     alert("Game Over")
 }
 }
