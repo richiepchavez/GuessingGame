@@ -15,13 +15,15 @@ const guess = document.querySelector('.guess');
 
 //winner inputs guess by clicking button
 let guessCount = 1;
-
+const maxTries = 5;
+let remainingTries = maxTries;
+let guessedNumbers = [];
 button.addEventListener("click", guessCheck)
 
 function guessCheck(){
     let userGuess = input.value;
 // user guess will get compared to randomNumber
- if(userGuess == randomNumber) {
+ if(userGuess === randomNumber) {
     alert("congrats! you guessed the answer!");
  }
  else if (userGuess > randomNumber) {
@@ -35,3 +37,35 @@ function guessCheck(){
  }
 }
 console.log(randomNumber);
+
+
+function endGame(){
+let attempts = input.value;
+guessedNumbers.push(attempts);
+guessCount++;
+remainingTries--;
+if (guessCount > maxTries){
+    alert("Out of guesses!");
+    resetGame();
+}
+else if (isNaN(attempts)){
+    alert(attempts + "is not a number!");
+}
+}
+function resetGame(){
+if (guessCount > maxTries){
+    alert("Game Over")
+}
+}
+
+
+
+    
+
+
+// for (let i = guessCount; i < 6; i++){
+//     if (guessCount === 6){
+//         alert("Game OVER!!!!")
+//     }
+// }
+// }
