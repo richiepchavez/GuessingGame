@@ -16,10 +16,22 @@ const guess = document.querySelector('.guess');
 //winner inputs guess by clicking button
 let guessCount = 1;
 
+button.addEventListener("click", guessCheck)
+
 function guessCheck(){
     let userGuess = input.value;
 // user guess will get compared to randomNumber
- if(userGuess == )
+ if(userGuess == randomNumber) {
+    alert("congrats! you guessed the answer!");
+ }
+ else if (userGuess > randomNumber) {
+    guessCount++;
+    alert("Wrong guess! Try a smaller number");
+ }
+ else
+ {
+    guessCount++;
+    alert("Wrong guess! Try a greater number!");
+ }
 }
-
-button.addEventListener("click", function)
+console.log(randomNumber);
